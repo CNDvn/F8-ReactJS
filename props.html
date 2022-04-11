@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://unpkg.com/react@17/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  </head>
+  <body>
+    <!-- 
+          Props
+
+        - React elements
+            - Sử dụng props giống như với attribute của thẻ HTML
+            - 2 props class, for => className, htmlFor
+            - phải tuân theo quy ước có sẵn
+        - React components
+            - Sử dụng props giống như đối số cho component
+            - Tự do đặt tên props
+                - Đặt theo camelCase
+                - * Có thể bao gồm dấu gạch ngang
+        - Chú ý:
+            - Props "key" là prop đặc biệt
+            - Props cơ bản là đối số của Component
+                => Props có thể là bất cứ kiểu dữ liệu gì
+            - Sử dụng destructuring
+       -->
+    <div id="root"></div>
+
+    <script type="text/babel">
+      // ProstItem.js
+      function PostItem({
+        image,
+        title,
+        description,
+        published,
+        callback = () => {},
+      }) {
+        callback();
+        return (
+          <div>
+            <img src={image} alt="Javascript nè" />
+            <h2 className="post-title">{title}</h2>
+            <p className="post-desc">{description}</p>
+            <p className="post-published">{published}</p>
+          </div>
+        );
+      }
+
+      // App.js
+      function App() {
+        return (
+          <div id="wrapper">
+            <PostItem
+              title="Javascript"
+              image="https://miro.medium.com/max/1400/1*l2P8BY_Glf0B_YcmvACEYw.jpeg"
+              description="Bạn đã có kiến thức"
+              published="Một ngày trước"
+              callback={() => {
+                console.log(Math.random());
+              }}
+            />
+            <PostItem
+              title="Javascript 2"
+              image="https://miro.medium.com/max/1400/1*l2P8BY_Glf0B_YcmvACEYw.jpeg"
+              description="Bạn đã có kiến thức"
+              published="Một ngày trước"
+            />
+          </div>
+        );
+      }
+
+      // index.js
+      ReactDOM.render(<App />, document.getElementById("root"));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://unpkg.com/react@17/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  </head>
+  <body>
+    <!-- 
+        JSX -> Javascript XML
+
+        1. Luôn dùng React.createElement()? Vấn đề?
+        2. JSX? Live demo: https://bit.ly/2VOIMN7
+        3. JSX không phải là HTML,
+            Cần có Javascript, Babel để dùng JSX
+        4. JSX và React-DOM
+            muốn từ JSX về React ta cần thư viện babel để chuyển đổi
+            khi add thư viện babel thì babel nó sẽ tìm các script có type="text/babel" rồi chuyển đổi nội dung bên trong thành React
+
+        <ul>
+            <li>Javascript</li>
+            <li>ReactJS</li>
+        </ul>
+     -->
+    <div id="root"></div>
+    <!-- Dùng ReactDOM để render  -->
+    <!-- <script>
+         const ul = React.createElement(
+             'ul',
+             null,
+             React.createElement('li',null,'Javascript'),
+             React.createElement('li',null,'React'),
+         )
+
+         ReactDOM.render(ul, document.getElementById('root'))
+     </script> -->
+
+    <!-- Dùng JSX để render -->
+    <script type="text/babel">
+      const reactCource = "ReactJS F8";
+      const courses = [
+        {
+          name: "HTML, CSS",
+        },
+        {
+          name: "Responsive web design",
+        },
+        {
+          name: "ReactJS",
+        },
+      ];
+      const ul = (
+        <ul>
+          {courses.map((course) => (
+            <li>{course.name}</li>
+          ))}
+        </ul>
+      );
+
+      ReactDOM.render(ul, document.getElementById("root"));
+    </script>
+  </body>
+</html>
