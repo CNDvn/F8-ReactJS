@@ -4,7 +4,6 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { ThemeProvider } from "./ThemeContext";
-import { StoreProvider } from "./store";
 
 // Fake comments
 function emitComment(id) {
@@ -24,9 +23,7 @@ emitComment(3);
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider>
-      <StoreProvider>
-        <App />
-      </StoreProvider>
+      <App />
     </ThemeProvider>
   </React.StrictMode>,
   document.getElementById("root")
