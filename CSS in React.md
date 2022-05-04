@@ -4,3 +4,6 @@
 
 ### CSS module
 - Giúp tạo ra những file css hoạt động độc lập và không ảnh hưởng tới nhau
+
+### classname & clsx
+- npm i clsx
