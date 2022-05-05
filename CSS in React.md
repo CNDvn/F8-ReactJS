@@ -7,3 +7,6 @@
 
 ### classname & clsx
 - npm i clsx
+
+### install SASS để dùng CSS
+- npm i sass
